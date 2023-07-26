@@ -15,14 +15,14 @@ const Footer = () => {
     <footer className="flex justify-around items-center py-4">
       <div className="social">
         {socials.map((social) => 
-        <a key={social.icon} href={social.link} className="mx-2">
+        <a key={social.icon} href={social.link} className="mx-2 align-text-top">
           <span className="material-symbols-rounded text-gray-500 font-bold">{social.icon}</span>
         </a>
         )}
       </div>
       <div className="right">
         <h4 className="capitalize">
-          &copy; {currentYear} <span className="font-bold">seffih portfolio.</span> All rights reserved. {/*feb 2, 2023*/}
+          &copy; {currentYear} <span className="font-bold">seffih portfolio.</span> <span className="hidden md:inline">All rights reserved.</span> {/*feb 2, 2023*/}
         </h4>
       </div>
     </footer>

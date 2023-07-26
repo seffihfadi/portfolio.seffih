@@ -12,12 +12,8 @@ const Hero = () => {
       <div className="flex absolute left-0 top-0 justify-between items-center py-2 px-6 w-full z-20">
         <div className="flex justify-center items-center">
           <span className="hidden mx-2 md:block">{heroData.phone}</span>
-          <span className=" mx-2">{heroData.email}</span>
+          <span className="hidden mx-2 md:block">{heroData.email}</span>
         </div>
-        {/*<div className="lang">
-          <button active="">En</button>
-          <button>Ar</button>
-  </div>*/}
         <Theme />
       </div>
       <div className="container">

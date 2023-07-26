@@ -20,7 +20,7 @@
 
 
 body{
-  @apply dark:bg-slate-800
+  @apply dark:bg-slate-800 overflow-x-hidden
 }
 
 ::-webkit-scrollbar {
@@ -55,17 +55,8 @@ header a{
 header a.active{
   @apply bg-[#516d833b]
 }
-header a span:last-child{
-  @apply text-xs font-bold md:hidden;
-}
-.lang button{
-  @apply rounded-md px-3 py-1 mr-1;
-}
-.lang button[active]{
-  @apply border-solid border-2 border-gray-500;
-}
 section.me span{
-  @apply text-lg
+  @apply text-base
 }
 .btn-primary{
   @apply hover:bg-[#836a51] transition hover:scale-110 bg-[#755f49] 
@@ -94,6 +85,9 @@ h1.title{
 section#biography{
   @apply rtl:bg-gradient-to-tl bg-gradient-to-tr from-[#f5f3f1] to-white 
   dark:from-[#172133] dark:to-slate-800 relative 
+}
+section#biography .grid *{
+  @apply dark:text-[#1c1c1c] md:dark:text-white
 }
 section#biography::after{
   @apply w-[100vw] md:w-[70vw] lg:w-[40vw] right-0 rtl:left-0 rtl:right-auto 
@@ -139,25 +133,14 @@ section.do .box h3{
 .testimonials .testi{
   @apply columns-1 md:columns-2 lg:columns-3 gap-6 overflow-hidden pb-10
 }
-
-
-
-
-/*
-section.experience .exp{
-  @apply gap-3 p-6 border-2 border-gray-300 border-solid rounded-lg col-span-12 grid grid-cols-12 my-3
-}
-section.experience .exp span:last-child{
-  @apply bg-[#755f49] px-3 max-w-fit w-auto capitalize rounded-md my-3 text-white font-semibold text-sm
-}*/
 .container{
-  @apply mx-auto /*px-4 md:px-10 lg:px-20 xl:px-28*/ sm:w-[540px] md:w-[720px] lg:w-[960px] xl:w-[1200px] px-4
+  @apply mx-auto /*px-4 md:px-10 lg:px-20 xl:px-28*/ sm:w-[540px] md:w-[720px] lg:w-[960px] xl:w-[1200px] px-6 md:px-0
 }
 section.contact .con{
   @apply flex items-center py-2
 }
 section.contact span.err{
-  @apply text-sm text-red-800 font-bold transition-transform hidden
+  @apply text-sm text-red-800 mt-2 font-bold transition-transform hidden
 }
 
 section.contact input,

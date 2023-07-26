@@ -9,7 +9,7 @@ const Learned = ({ skills }) => {
         initial='hidden' 
         whileInView='visible' 
         variants={learnedParentVars} 
-        className="grid grid-cols-12"
+        className="grid grid-cols-6 md:grid-cols-12"
       >
         {skills && skills.map((skill) => 
           <motion.div

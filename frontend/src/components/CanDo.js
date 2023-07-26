@@ -11,6 +11,7 @@ const CanDo = () => {
         <motion.div 
           className="grid grid-cols-12 gap-6"
           variants={doParentVars}
+          viewport={{once: true}}
           initial='hidden'
           whileInView='visible'
         >

@@ -8,12 +8,13 @@ const Bio = () => {
   return (
     <section className="biography" >
       <div className="container">
-        <div className="grid grid-cols-12 gap-10 items-center justify-center">
+        <div className="grid grid-cols-12 gap-0 md:gap-10 items-center justify-center">
           <div className="col-span-12 lg:col-span-4">
             <motion.div 
               initial={{x: -50}}
               whileInView={bioVars.inView}
               transition={bioVars.transition} 
+              viewport={{once: true}}
               className="about"
             >
               <div className="imgin mx-auto">
@@ -30,6 +31,8 @@ const Bio = () => {
               initial={{x: 50}}
               whileInView={bioVars.inView}
               transition={bioVars.transition} 
+              viewport={{once: true}}
+              className='' 
             >
               <h1 className="title">biography</h1>
               <p>{bioData.desc1}</p>

@@ -9,6 +9,7 @@ const Education = ({ educations }) => {
         variants={educationParentVars} 
         initial='hidden' 
         whileInView='visible' 
+        viewport={{once: true}}
         className='sticky top-16'
       >
         <h2 className="capitalize text-3xl">education</h2>

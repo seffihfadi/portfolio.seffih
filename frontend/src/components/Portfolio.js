@@ -12,6 +12,7 @@ const Portfolio = () => {
         <motion.div 
           initial={{y: 50, opacity: 0}} 
           whileInView={{y: 0, opacity: 1}} 
+          viewport={{once: true}}
           transition={{type: 'spring', stiffness: 150}}
           className="grid grid-cols-12 gap-7"
         >

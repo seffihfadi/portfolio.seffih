@@ -1,3 +1,5 @@
+const isOnce = true
+
 export const educationParentVars = {
   hidden: {
     x: -70,
@@ -10,9 +12,9 @@ export const educationParentVars = {
       type: 'spring',
       stiffness: 150,
       when: 'beforeChildren',
-      staggerChildren: 0.2,
+      staggerChildren: 0.2
     }
-  }
+  },
 }
 export const educationChildVars = {
   hidden: {
@@ -123,7 +125,7 @@ export const doParentVars = {
     opacity: 1,
     transition:{ 
       type: 'spring',
-      stiffness: 300,
+      stiffness: 150,
       when: '',
       staggerChildren: .5
     }
