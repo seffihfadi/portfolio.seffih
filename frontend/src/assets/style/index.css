@@ -1,0 +1,263 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+
+@import "https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200";
+@import "https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Tangerine:wght@400;700&display=swap";
+@import "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;500;600;700&family=Quicksand:wght@300;400;500;600;700&family=Tangerine:wght@400;700&display=swap";
+
+
+
+* {
+  @apply font-quick text-gray-800 dark:text-white
+}
+
+.material-symbols-rounded {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48
+}
+
+
+body{
+  @apply dark:bg-slate-800
+}
+
+::-webkit-scrollbar {
+  @apply w-2 
+
+}
+::-webkit-scrollbar-track {
+  @apply bg-white dark:bg-slate-800
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-[#836a51] hover:bg-[#836a51ef]
+  
+}
+header{
+  @apply bottom-0 w-screen ltr:left-0 rtl:right-0 fixed md:h-full md:w-auto 
+  md:top-0 z-10 flex justify-center items-center;
+}
+footer{
+  @apply mb-20 md:mb-0
+}
+header .links{
+  @apply bg-white dark:bg-slate-800 w-full md:shadow-2xl md:py-6 ltr:md:rounded-br-3xl 
+  ltr:md:rounded-tr-3xl rtl:md:rounded-bl-3xl rtl:md:rounded-tl-3xl
+}
+header .links ul{
+  @apply flex justify-around md:justify-center items-center md:flex-col 
+}
+header a{
+  @apply flex justify-center items-center flex-col p-3 md:hover:bg-[#836a513b] 
+  transition ease-out delay-100 cursor-pointer
+}
+header a.active{
+  @apply bg-[#516d833b]
+}
+header a span:last-child{
+  @apply text-xs font-bold md:hidden;
+}
+.lang button{
+  @apply rounded-md px-3 py-1 mr-1;
+}
+.lang button[active]{
+  @apply border-solid border-2 border-gray-500;
+}
+section.me span{
+  @apply text-lg
+}
+.btn-primary{
+  @apply hover:bg-[#836a51] transition hover:scale-110 bg-[#755f49] 
+  font-semibold px-6 py-2 rounded-md text-sm text-white
+}
+.btn-switch{
+  @apply bg-[#ad9274] rounded-full px-4 font-bold flex justify-center items-center dark:bg-slate-600 shadow-lg h-10
+}
+.btn-primary:disabled{
+  @apply hover:scale-100
+}
+section:not(#biography){
+  @apply py-10 lg:py-14
+}
+.imgin{
+  @apply w-[50%] overflow-hidden rounded-full h-auto lg:w-full border-solid border-4 
+  border-[#755f49] rtl:bg-gradient-to-tl bg-gradient-to-tr from-[#f5f3f1] 
+  to-white dark:from-[#172133] dark:to-slate-800
+}
+.imgin img{
+  @apply aspect-square 
+}
+h1.title{
+  @apply text-4xl capitalize my-6 font-bold after:content-['\00a0"']
+}
+section#biography{
+  @apply rtl:bg-gradient-to-tl bg-gradient-to-tr from-[#f5f3f1] to-white 
+  dark:from-[#172133] dark:to-slate-800 relative 
+}
+section#biography::after{
+  @apply w-[100vw] md:w-[70vw] lg:w-[40vw] right-0 rtl:left-0 rtl:right-auto 
+  absolute top-0 h-full content-[''] bg-hero-pattern bg-cover bg-center bg-no-repeat z-0
+}
+section.biography p{
+  @apply my-2
+}
+section.biography .list li{
+  @apply my-4 capitalize
+}
+section.biography .list li label{
+  @apply font-bold
+}
+section.do .box{
+  @apply 
+    col-span-12 md:col-span-6 lg:col-span-3 flex flex-col shadow-lg hover:shadow-2xl 
+    transition-shadow rounded-lg p-6 rtl:bg-gradient-to-bl bg-gradient-to-br 
+    from-[#f5f3f1] to-white dark:from-[#172133] dark:to-slate-800 relative
+    cursor-pointer
+}
+section.do .box h3 span {
+  @apply bg-[#ffce44] text-white font-bold rounded-lg text-base px-2 py-1 mx-3
+}
+
+section.do .box span{
+  @apply text-5xl 
+}
+section.do .box h3{
+  @apply capitalize text-xl font-bold my-4
+}
+
+
+
+.testimonials figure{
+  @apply mb-6 relative flex flex-col-reverse rounded-lg p-6 hover:shadow-lg 
+  shadow-md transition-shadow break-inside-avoid cursor-default
+}
+.testimonials .img {
+  @apply flex justify-center items-center w-12 h-12 rounded-full font-bold text-lg uppercase
+}
+
+.testimonials .testi{
+  @apply columns-1 md:columns-2 lg:columns-3 gap-6 overflow-hidden pb-10
+}
+
+
+
+
+/*
+section.experience .exp{
+  @apply gap-3 p-6 border-2 border-gray-300 border-solid rounded-lg col-span-12 grid grid-cols-12 my-3
+}
+section.experience .exp span:last-child{
+  @apply bg-[#755f49] px-3 max-w-fit w-auto capitalize rounded-md my-3 text-white font-semibold text-sm
+}*/
+.container{
+  @apply mx-auto /*px-4 md:px-10 lg:px-20 xl:px-28*/ sm:w-[540px] md:w-[720px] lg:w-[960px] xl:w-[1200px] px-4
+}
+section.contact .con{
+  @apply flex items-center py-2
+}
+section.contact span.err{
+  @apply text-sm text-red-800 font-bold transition-transform hidden
+}
+
+section.contact input,
+section.contact textarea,
+section.contact select{
+  @apply w-full border-2 border-solid border-gray-300 px-4 py-2 rounded-md dark:bg-slate-700
+}
+
+section.contact input:invalid:focus ~ span.err,
+section.contact textarea:invalid:focus ~ span.err{
+  @apply block
+}
+section.contact input:invalid:focus,
+section.contact textarea:invalid:focus{
+  @apply outline-red-800
+}
+section.contact select,
+section.contact input[type='text']{
+  @apply capitalize
+}
+section.contact select option{
+  @apply capitalize
+}
+
+
+/*section.portfolio a{
+  @apply 
+}*/
+section.portfolio .project{
+  @apply rounded-lg overflow-hidden flex flex-col items-center relative shadow-xl 
+  col-span-12 md:col-span-6 lg:col-span-4
+}
+section.portfolio .project .txt {
+  @apply flex items-start p-5
+}
+section.portfolio .project .txt .logo{
+  @apply max-w-[30%] 
+}
+section.portfolio .project .txt .title{
+  @apply mx-8 max-w-[60%]
+}
+section.portfolio .project .txt .title h3{
+  @apply font-bold text-black text-[1rem]
+}
+section.portfolio .project .txt .title .info{
+  @apply flex mt-2
+}
+section.portfolio .project .txt .title .info .rounded{
+  @apply border-[1px] border-black flex justify-center items-center rounded-full 
+  px-2 last-of-type:mx-2 
+}
+
+section.portfolio .project .txt .title .info .rounded.inter{
+  @apply bg-[#516d833b]
+}
+section.portfolio .project .txt .title .info .rounded span{
+  @apply mx-1 text-base last-of-type:text-sm dark:text-black
+}
+section.portfolio .project .tech{
+  @apply absolute flex bottom-0 left-0 p-5 justify-center items-center
+}
+section.portfolio .project .tech img{
+  @apply w-8 mx-2
+}
+
+
+section.skills ul{
+  @apply p-5 rtl:bg-gradient-to-l bg-gradient-to-r from-[#f5f3f1] to-white 
+  dark:from-[#172133] dark:to-slate-800 rounded-lg
+}
+section.skills li{
+  @apply my-4
+}
+section.skills li h6{
+  @apply font-semibold
+}
+section.skills .skill{
+  @apply grid grid-cols-12 items-center my-5 last-of-type:bottom-0
+}
+section.skills .skill h4{
+  @apply capitalize text-3xl after:content-['%']
+}
+section.skills .skill .prog{
+  @apply w-full bg-gray-200 dark:bg-slate-600 rounded-full
+}
+section.skills .skill .prog > div{
+  @apply bg-[#755f49] rounded-full text-sm font-semibold text-white text-center p-0.5 uppercase
+}
+section.contact{ 
+  @apply rtl:bg-gradient-to-tl bg-gradient-to-tr from-[#f5f3f1] to-white 
+  dark:from-[#172133] dark:to-slate-800
+}
+
+section.skills .learned .tech {
+  @apply col-span-2 flex flex-col justify-center items-center p-6 md:p-8 lg:p-10 cursor-pointer
+}
+
+section.skills .learned .tech img{
+  @apply w-full mb-3
+}
+section.skills .learned .tech span{
+  @apply font-bold capitalize mt-auto text-sm md:text-base
+}
