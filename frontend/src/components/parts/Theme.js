@@ -1,48 +1,26 @@
 import { useState, useEffect } from "react"
 
 const Theme = () => {
-/*
-  const themeStored = localStorage.getItem('sfp-theme') !== null ? false : localStorage.getItem('sfp-theme') 
   const preferDark = window.matchMedia("(prefers-color-scheme: dark)").matches
-  const [theme, setTheme] = useState('')
+  const [theme, setTheme] = useState(preferDark ? 'dark' : 'light')
+  const [changed, setChanged] = useState(false)
 
-  if (!themeStored) {
-    localStorage.setItem('sfp-theme', preferDark ? 'dark' : 'light')
-    setTheme(preferDark ? 'dark' : 'light')
-  } else {
-    setTheme(themeStored)
+  const handleTheme = () => {
+    localStorage.setItem('sfp-theme', theme == 'dark' ? 'light' : 'dark')
+    setChanged(!changed)
   }
 
-  //const siteTheme = localStorage.getItem('sfp-theme')
-  
-  //console.log(isSetedDark)
-*/
-  
-  
-  const [theme, setTheme] = useState('light')
-  /*
   useEffect(() => {
     const existTheme = localStorage.getItem('sfp-theme') !== null
-    const preferDark = window.matchMedia("(prefers-color-scheme: dark)").matches
-
-    if (!existTheme) {
-      localStorage.setItem('sfp-theme', preferDark ? 'dark' : 'light')
-      setTheme(preferDark ? 'dark' : 'light')
-    } else {
+    if (existTheme) {
       setTheme(localStorage.getItem('sfp-theme'))
-      document.documentElement.classList.add(localStorage.getItem('sfp-theme'))
+    } else {
+      localStorage.setItem('sfp-theme', theme)
     }
-    
-  }, [])
+    document.documentElement.classList = ''
+    document.documentElement.classList.add(localStorage.getItem('sfp-theme'))
+  }, [changed])
 
-*/
-  //const [theme, setTheme] = useState('')
-  const currentTheme = theme == 'dark' ? 'light' : 'dark'
-  const handleTheme = () => {
-    
-    setTheme(currentTheme)
-    document.documentElement.classList.toggle('dark')
-  }
 
   return (
     
@@ -80,7 +58,7 @@ const Theme = () => {
             />
           </svg>
         </span>  
-      }<span className="mx-2">{currentTheme}</span>  
+      }<span className="mx-2">{theme}</span>  
     </button>
       
       
