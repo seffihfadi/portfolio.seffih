@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { testimonialQuery } from '../utils/serverData'
 import { client } from '../client'
 import Testimonial from './parts/Testimonial'
+import { motion } from 'framer-motion'
 
 const Testimonials = () => {
 
@@ -20,11 +21,16 @@ const Testimonials = () => {
     <section className="testimonials" id="testimonials">
       <div className="container relative">
         <h1 className="title">testimonials</h1>
-        <div className="testi">
+        <motion.div 
+          initial={{y: 50, opacity: 0}} 
+          whileInView={{y: 0, opacity: 1}} 
+          transition={{type: 'spring', stiffness: 150}}
+          className="testi"
+        >
           {testimonials && testimonials.map((testimonial, i) => 
             <Testimonial key={i} bgColor={colors[i%colors.length]} testimonial={testimonial} />
           )}
-        </div>
+        </motion.div>
         {/*<div className="inset-x-0 bottom-0 flex justify-center bg-gradient-to-t from-white pt-32 pb-8 dark:from-slate-800 dark:to-slate-750 dark:opacity-60 absolute">
           <button className="btn-primary">show more</button>
   </div>*/}

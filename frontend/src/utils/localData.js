@@ -17,7 +17,7 @@ export const whatCanIDo = [
   {
     icon: 'phone_iphone',
     name: 'mobile apps development',
-    desc: 'React Native enables cross-platform mobile app development using JavaScript, allowing developers to create iOS and Android apps.',
+    desc: 'React Native enables cross-platform mobile app ( iOS & Android ) development using JavaScript.',
     soon: true
   }
   

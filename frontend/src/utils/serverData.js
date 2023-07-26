@@ -21,7 +21,7 @@ export const educationQuery
   }`
 
 export const projectQuery 
-= `*[_type == "project"]{
+= `*[_type == "project"] | order(_createdAt desc){
     _id,
     pub,
     logo{

@@ -1,11 +1,12 @@
 import { footerData } from '../../utils/localData'
 
+
 const Touch = ({ contact, setContact }) => {
   return (
     <>
     {contact 
     ?
-      <div>
+      <>
         <div className="flex justify-between items-center">
           <h2 className="capitalize text-3xl">{footerData.contact.touch}</h2>
           <button className='btn-switch' onClick={() => { setContact(!contact)} }>feedback</button>
@@ -23,15 +24,15 @@ const Touch = ({ contact, setContact }) => {
           <span className="material-symbols-rounded mx-3 font-bold">phone</span>
           <span>{footerData.contact.phone}</span>
         </div>
-      </div>
+      </>
     :
-      <div>
+      <>
         <div className="flex justify-between items-center">
           <h2 className="capitalize text-3xl">{footerData.feedback.touch}</h2>
           <button className='btn-switch' onClick={() => { setContact(!contact)} }>contact</button>
         </div>
         <p className="my-4 font-bold">{footerData.feedback.text}</p>
-      </div>
+      </>
     }
     </>
   )

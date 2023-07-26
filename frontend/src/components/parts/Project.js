@@ -1,14 +1,19 @@
 import Techno from '../parts/Techno'
 import { LikeBtn, ViewBtn } from './ProjectBtns'
+import { motion } from 'framer-motion'
 
 const Project = ({ project }) => {
 
   
   return (
-    <div className="project" style={{background: project.color}}>
+    <motion.div 
+      whileHover={{y: -5}} 
+      whileTap={{scale: .9}} 
+      className="project" 
+      style={{background: project.color}}
+    >
       <div className="txt">
         <div className="logo">
-          
           <img src={project.logo.asset.url} alt={project.title} />
         </div>
         <div className="title">
@@ -23,7 +28,7 @@ const Project = ({ project }) => {
         <img className='h-full' src={project.mokup.asset.url} alt="" />
         <Techno technos={project.technologies} />
       </div>
-    </div>
+    </motion.div>
   )
 }
 

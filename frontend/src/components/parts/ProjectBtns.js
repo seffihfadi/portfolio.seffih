@@ -15,7 +15,8 @@ export const LikeBtn = ({ project }) => {
   const [isLike, setIsLike] = useState(isLiked)
   const [numLikes, setNumLikes] = useState(projectNumLikes)
 
-  const handleLike = () => {
+  const handleLike = (e) => {
+    e.stopPropagation()
     if (!isLike) {
       setIsLike(true)
       setNumLikes(numLikes + 1)
@@ -55,7 +56,8 @@ export const ViewBtn = ({ project }) => {
   const [isView, setIsView] = useState(isViewd)
   const [numViews, setNumViews] = useState(projectNumViews)
 
-  const handleView = () => {
+  const handleView = (e) => {
+    e.stopPropagation()
     if (!isView) {
       setIsView(true)
       setNumViews(numViews + 1)

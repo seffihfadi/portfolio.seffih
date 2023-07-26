@@ -26,7 +26,7 @@ const Theme = () => {
     
   <div className="theme">
     <button onClick={handleTheme} className="btn-switch">
-      {theme == 'dark' ? 
+      {theme === 'dark' ? 
         <span>
           <svg
             className="h-6 w-6 text-gray-400"

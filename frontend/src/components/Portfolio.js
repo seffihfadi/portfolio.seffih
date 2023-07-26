@@ -1,6 +1,7 @@
 import { ProjectsContext } from '../utils/contextApi'
 import Project from './parts/Project'
 import { useContext } from 'react'
+import { motion } from 'framer-motion'
 
 const Portfolio = () => {
   const projects = useContext(ProjectsContext)
@@ -8,11 +9,16 @@ const Portfolio = () => {
     <section className="portfolio" id="portfolio">
       <div className="container">
         <h1 className="title">portfolio</h1>
-        <div className="grid grid-cols-12 gap-7">
+        <motion.div 
+          initial={{y: 50, opacity: 0}} 
+          whileInView={{y: 0, opacity: 1}} 
+          transition={{type: 'spring', stiffness: 150}}
+          className="grid grid-cols-12 gap-7"
+        >
           {projects && projects.map((project) => project.pub &&
             <Project key={project._id} project={project} />
           )}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

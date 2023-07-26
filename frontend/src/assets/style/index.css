@@ -235,7 +235,7 @@ section.skills li h6{
   @apply font-semibold
 }
 section.skills .skill{
-  @apply grid grid-cols-12 items-center my-5 last-of-type:bottom-0
+  @apply grid grid-cols-12 items-center my-7 last-of-type:bottom-0
 }
 section.skills .skill h4{
   @apply capitalize text-3xl after:content-['%']
