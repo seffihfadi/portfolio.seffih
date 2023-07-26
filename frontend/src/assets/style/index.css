@@ -39,7 +39,7 @@ header{
   md:top-0 z-10 flex justify-center items-center;
 }
 footer{
-  @apply mb-20 md:mb-0
+  @apply mb-14 md:mb-0
 }
 header .links{
   @apply bg-white dark:bg-slate-800 w-full md:shadow-2xl md:py-6 ltr:md:rounded-br-3xl 
@@ -87,7 +87,7 @@ section#biography{
   dark:from-[#172133] dark:to-slate-800 relative 
 }
 section#biography .grid *{
-  @apply dark:text-[#1c1c1c] md:dark:text-white
+  @apply dark:text-[#4b4b4b] md:dark:text-white
 }
 section#biography::after{
   @apply w-[100vw] md:w-[70vw] lg:w-[40vw] right-0 rtl:left-0 rtl:right-auto 
@@ -221,13 +221,13 @@ section.skills .skill{
   @apply grid grid-cols-12 items-center my-7 last-of-type:bottom-0
 }
 section.skills .skill h4{
-  @apply capitalize text-3xl after:content-['%']
+  @apply capitalize text-lg md:text-3xl after:content-['%']
 }
 section.skills .skill .prog{
   @apply w-full bg-gray-200 dark:bg-slate-600 rounded-full
 }
 section.skills .skill .prog > div{
-  @apply bg-[#755f49] rounded-full text-sm font-semibold text-white text-center p-0.5 uppercase
+  @apply bg-[#755f49] rounded-full text-xs md:text-sm font-semibold text-white text-center p-0.5 capitalize md:uppercase
 }
 section.contact{ 
   @apply rtl:bg-gradient-to-tl bg-gradient-to-tr from-[#f5f3f1] to-white 
@@ -235,7 +235,7 @@ section.contact{
 }
 
 section.skills .learned .tech {
-  @apply col-span-2 flex flex-col justify-center items-center p-6 md:p-8 lg:p-10 cursor-pointer
+  @apply col-span-2 flex flex-col justify-center items-center p-9 lg:p-10 cursor-pointer
 }
 
 section.skills .learned .tech img{
