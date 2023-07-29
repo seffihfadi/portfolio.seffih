@@ -2,11 +2,10 @@ import { motion } from 'framer-motion'
 import { useRef, useState, useContext } from 'react'
 import { client } from '../../client'
 import { v4 } from 'uuid'
-import { ProjectsContext } from '../../utils/contextApi'
+import { useProjects } from '../../utils/context/ProjectsContext'
 
 const RateForm = () => {
-
-  const projects = useContext(ProjectsContext)
+  const projects = useProjects()
   const jobs = ['designer', 'frontend developer', 'backend developer', 'mobile developer']
   
   const [isSending, setIsSending] = useState(false)
@@ -56,8 +55,8 @@ const RateForm = () => {
               name="name" 
               placeholder="Name" 
               type="text"
-              pattern='^(?=.{4,18}$)[a-zA-Z]+ [a-zA-Z]+$' 
-              /*value={rateFormValues.name}*/
+              pattern='^(?=.{4,18}$)[a-zA-Z]+ [a-zA-Z]+$'
+              required={true}
             />
             <span className='err'>name must contain two words of alphabits</span>
           </div>
@@ -70,7 +69,7 @@ const RateForm = () => {
               required={true}
               /*value={rateFormValues.job}*/
             >
-              <option value="none">none</option>
+              <option value="none">Job ( optional )</option>
               {jobs.map((job, i) => 
                 <option key={i} value={job}>{job}</option>
               )}
@@ -86,7 +85,7 @@ const RateForm = () => {
               required={true}
               /*value={rateFormValues.project}*/
             >
-              <option value="none">none</option>
+              <option value="none">Project ( optional )</option>
               {projects && projects.map(({_id, title, pub, link}) => 
                 pub && <option key={_id} value={link}>{title}</option>
               )}

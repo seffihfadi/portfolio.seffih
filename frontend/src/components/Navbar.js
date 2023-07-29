@@ -17,7 +17,7 @@ const Navbar = () => {
           {pageLinks.map((link, i) =>
             <li key={i}>
               <Link activeClass="active" to={link.title} spy={true} smooth={true}>
-                <span className="material-symbols-rounded text-2xl">{link.logo}</span>
+                <span className="material-symbols-rounded">{link.logo}</span>
               </Link>
             </li>
           )}

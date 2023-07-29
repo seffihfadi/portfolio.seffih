@@ -1,10 +1,9 @@
-import { ProjectsContext } from '../utils/contextApi'
 import Project from './parts/Project'
-import { useContext } from 'react'
 import { motion } from 'framer-motion'
+import { useProjects } from '../utils/context/ProjectsContext'
 
 const Portfolio = () => {
-  const projects = useContext(ProjectsContext)
+  const projects = useProjects()
   return (
     <section className="portfolio" id="portfolio">
       <div className="container">

@@ -9,26 +9,13 @@ import {
   Testimonials, 
   Contact 
 } from "../components"
-import { useState, useEffect, createContext } from 'react'
-import { projectQuery } from '../utils/serverData'
-import { client } from '../client'
-import { ProjectsContext } from "../utils/contextApi"
+import { AnonymousProvider } from "../utils/context/AnonymousContext"
 
 const Home = () => {
 
-  
-  const [projects, setProjects] = useState(null)
-
-  useEffect(() => {
-    client
-      .fetch(projectQuery)
-      .then((projects) => {
-        setProjects(projects)
-      })
-  }, [])
 
   return (
-    <ProjectsContext.Provider value={projects}>
+    <AnonymousProvider>
       <Navbar />
       <main className="relative">
         <Hero />
@@ -40,7 +27,7 @@ const Home = () => {
         <Contact />
       </main>
       <Footer />
-    </ ProjectsContext.Provider>
+    </AnonymousProvider>
   )
 }
 

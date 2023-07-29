@@ -39,6 +39,7 @@ export const projectQuery
     },
     color,
     title,
+    description,
     technologies[] -> {
       name,
       logo{

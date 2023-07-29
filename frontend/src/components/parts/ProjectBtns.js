@@ -1,13 +1,13 @@
 import { useState, useContext } from 'react'
 import { client } from '../../client'
 import { v4 } from 'uuid'
-import { UserContext } from '../../utils/contextApi'
 import { motion } from 'framer-motion'
+import { useAnonymous } from '../../utils/context/AnonymousContext'
 
 
 export const LikeBtn = ({ project }) => {
 
-  const anonymousID = useContext(UserContext)
+  const anonymousID = useAnonymous()
   const isLiked 
     = project.likes !== null 
     && Boolean(project.likes.filter((like) => like.id === anonymousID).length)
@@ -48,7 +48,7 @@ export const LikeBtn = ({ project }) => {
 
 export const ViewBtn = ({ project }) => {
 
-  const anonymousID = useContext(UserContext)
+  const anonymousID = useAnonymous()
   const isViewd 
     = project.views !== null
     && Boolean(project.views.filter((view) => view.id === anonymousID).length)

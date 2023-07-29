@@ -13,10 +13,11 @@ const Learned = ({ skills }) => {
       >
         {skills && skills.map((skill) => 
           <motion.div
+            /*title={skill.name}*/
             variants={learnedChildVars}
             key={skill._id} 
-            whileHover={{scale: 1.1}} 
-            whileTap={{scale: .9}} 
+            whileHover={{scale: skill.percentage > 80 && 1.1}} 
+            whileTap={{scale: skill.percentage > 80 && .9}} 
             className="tech"
           >
             <img src={skill.logo.asset.url} alt={skill.name} />

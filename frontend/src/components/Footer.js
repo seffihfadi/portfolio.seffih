@@ -3,20 +3,22 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   const socials = [
     {
-      icon: 'link',
+      name: 'linkedin',
+      icon: require('../assets/imgs/linkedin.png'),
       link: 'https://www.linkedin.com/in/seffih-fadi'
     },
     {
-      icon: 'nest_audio',
-      link: 'https://web.facebook.com/imad.jawad.3532'
+      name: 'github',
+      icon: require('../assets/imgs/github.png'),
+      link: 'https://github.com/seffihfadi'
     },
   ]
   return (
     <footer className="flex justify-around items-center py-4">
-      <div className="social">
+      <div className="social flex">
         {socials.map((social) => 
-        <a key={social.icon} href={social.link} className="mx-2 align-text-top">
-          <span className="material-symbols-rounded text-gray-500 font-bold">{social.icon}</span>
+        <a key={social.name} href={social.link} className="mx-2 align-text-top" target='_blank'>
+          <img className='h-6 w-6' src={social.icon} alt={social.name} />
         </a>
         )}
       </div>

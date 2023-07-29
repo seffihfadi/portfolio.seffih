@@ -20,11 +20,11 @@
 
 
 body{
-  @apply dark:bg-slate-800 overflow-x-hidden
+  @apply dark:bg-slate-800 overflow-x-hidden 
 }
 
 ::-webkit-scrollbar {
-  @apply w-2 
+  @apply w-2   
 
 }
 ::-webkit-scrollbar-track {
@@ -134,8 +134,9 @@ section.do .box h3{
   @apply columns-1 md:columns-2 lg:columns-3 gap-6 overflow-hidden pb-10
 }
 .container{
-  @apply mx-auto /*px-4 md:px-10 lg:px-20 xl:px-28*/ sm:w-[540px] md:w-[720px] lg:w-[960px] xl:w-[1200px] px-6 md:px-0
+  @apply mx-auto sm:w-[540px] md:w-[720px] lg:w-[960px] xl:w-[1200px] px-6 md:px-0
 }
+
 section.contact .con{
   @apply flex items-center py-2
 }
@@ -144,6 +145,7 @@ section.contact span.err{
 }
 
 section.contact input,
+.auth input,
 section.contact textarea,
 section.contact select{
   @apply w-full border-2 border-solid border-gray-300 px-4 py-2 rounded-md dark:bg-slate-700
@@ -151,11 +153,15 @@ section.contact select{
 
 section.contact input:invalid:focus ~ span.err,
 section.contact textarea:invalid:focus ~ span.err{
-  @apply block
+  @apply block 
 }
 section.contact input:invalid:focus,
 section.contact textarea:invalid:focus{
-  @apply outline-red-800
+  @apply outline-red-800 
+}
+section.contact input:valid:focus,
+section.contact textarea:valid:focus{
+  @apply outline-green-800 
 }
 section.contact select,
 section.contact input[type='text']{
@@ -243,4 +249,85 @@ section.skills .learned .tech img{
 }
 section.skills .learned .tech span{
   @apply font-bold capitalize mt-auto text-sm md:text-base
+}
+
+
+.auth {
+  @apply flex flex-col justify-center items-center h-screen w-screen px-6
+}
+.auth h1{
+  @apply text-xl capitalize font-semibold my-6
+}
+.auth input[type='password']{
+  @apply w-full md:w-96 tracking-[calc(100vw/23)] outline-none md:tracking-[calc(384px/23)] font-bold
+}
+
+.dashboard{
+  @apply mt-20
+}
+
+.dashboard .admin-box{
+  @apply relative rounded-lg p-4 hover:shadow-lg shadow-md transition-shadow 
+  mb-4 border-[1px] border-gray-300
+}
+
+.dashboard .admin-box .count {
+  @apply flex flex-col
+}
+.dashboard .admin-box .count h3{
+  @apply text-3xl font-bold
+}
+
+.admin-box.sm {
+  @apply flex items-center col-span-4 lg:col-span-1
+}
+.admin-box.sm span{
+  @apply p-5 text-3xl
+}
+
+.dashboard .admin-box .count span{
+  @apply capitalize p-0 text-sm my-1.5
+}
+.admin-box.md .count, .admin-box.lg .count{
+  @apply flex-col-reverse
+}
+.admin-box.md {
+  @apply col-span-4 lg:col-span-1
+}
+.admin-box.lg {
+  @apply overflow-hidden
+}
+
+.dashboard .admin-box .data{
+  @apply w-full my-6 overflow-y-auto max-h-72
+}
+
+.sm-layout{
+  @apply grid col-span-4 lg:col-span-2 grid-cols-4 lg:grid-cols-2 gap-4
+}
+.lg-layout{
+  @apply grid col-span-4 lg:col-span-2 grid-cols-1
+}
+
+.data table{
+  @apply w-full table-auto
+}
+.data table thead{
+  @apply sticky top-0 bg-white dark:bg-slate-800
+}
+.data table th{
+  @apply text-left py-3
+}
+.data table tr{
+  @apply border-b border-gray-300 last-of-type:border-0
+}
+.data table tr td{
+  @apply py-3 capitalize 
+}
+.data table tr td.logo,
+.data table tr td.logo a{
+  @apply flex items-center
+}
+.data table tr td.logo img{
+  @apply w-7 h-7 mr-2
 }

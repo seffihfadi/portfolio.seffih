@@ -19,7 +19,7 @@ export const educationParentVars = {
 export const educationChildVars = {
   hidden: {
     y: 50,
-    opacity: 0.07
+    opacity: 0.01
   },
   visible: {
     y: 0,
@@ -139,5 +139,17 @@ export const doChildVars = {
   visible: {
     opacity: 1,
     scale: [1, 1.05, 1],
+  }
+}
+
+export const drawPath = {
+  hidden: { pathLength: 0, opacity: 0 },
+  visible: {
+    pathLength: 1,
+    opacity: 1,
+    transition: {
+      pathLength: {type: "spring", duration: 1.5},
+      opacity: {duration: 0.01 }
+    }
   }
 }

@@ -1,21 +1,16 @@
 import { heroData } from '../utils/localData'
 import { TypeAnimation } from 'react-type-animation'
-import Theme from "./parts/Theme"
+import Head from "./parts/Head"
 import { motion } from 'framer-motion'
 import { heroChildVars, heroParentVars } from '../assets/anim/animation'
+
 
 const Hero = () => {
   const delay = 2000;
   
   return (
     <section id="biography" className="me">
-      <div className="flex absolute left-0 top-0 justify-between items-center py-2 px-6 w-full z-20">
-        <div className="flex justify-center items-center">
-          <span className="hidden mx-2 md:block">{heroData.phone}</span>
-          <span className="hidden mx-2 md:block">{heroData.email}</span>
-        </div>
-        <Theme />
-      </div>
+      <Head />
       <div className="container">
         <div className="grid grid-cols-12 min-h-screen items-center">
           <motion.div variants={heroParentVars} initial='hidden' whileInView='visible' className="col-span-12 lg:col-span-7 z-10">

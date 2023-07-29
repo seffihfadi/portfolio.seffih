@@ -17,7 +17,7 @@ const Project = ({ project }) => {
           <img src={project.logo.asset.url} alt={project.title} />
         </div>
         <div className="title">
-          <h3>{project.title}</h3>
+          <h3>{project.description}</h3>
           <div className="info">
             <LikeBtn project={project} />
             <ViewBtn project={project} />

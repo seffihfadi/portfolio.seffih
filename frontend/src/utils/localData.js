@@ -64,7 +64,7 @@ export const footerData = {
     email: bioData.contact.email
   },
   feedback: {
-    touch: 'leave testimonial',
+    touch: 'leave a testimonial',
     text: 'Thank you for taking the time to share your thoughts and feelings. Your testimonial not only made my day but will also motivate me to be the best version of myself.',
   }
 }
