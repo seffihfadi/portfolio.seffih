@@ -4,8 +4,8 @@ export default {
   type: 'document',
   fields: [
     {
-      name: 'id',
-      title: 'User ID',
+      name: 'comingfrom',
+      title: 'Coming From',
       type: 'string',
     },
   ],

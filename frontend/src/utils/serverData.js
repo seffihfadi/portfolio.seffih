@@ -23,6 +23,7 @@ export const educationQuery
 export const projectQuery 
 = `*[_type == "project"] | order(_createdAt desc){
     _id,
+    _createdAt,
     pub,
     logo{
       asset->{
@@ -59,4 +60,13 @@ export const testimonialQuery
     pub
   }`
 
+
+export const usersQuery = (days) => {
+  return `*[_type == "anonymousUser" && dateTime(_createdAt) > dateTime(now()) - 60*60*24*${days}] | order(_createdAt desc){
+      _id,
+      comingfrom,
+      _createdAt
+
+    }`
+}
   

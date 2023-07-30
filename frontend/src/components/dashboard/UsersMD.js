@@ -1,37 +1,32 @@
 import { Chart } from 'react-google-charts'
+import { useUsers, useTheme } from '../../utils/context/UsersContext'
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts'
 
 const UsersMD = () => {
 
-  const data = [
-    ["Site", "Views Number"],
-    ["Facebook", 15],
-    ["Instagram", 15],
-    ["Linkedin", 20],
-    ["Github", 10],
-    ["Others", 3], // CSS-style declaration
-  ]
-  
-  const options = {
-    /*title: "My Daily Activities",*/
-    legend: "none",
-    pieSliceText: "label",
-    pieHole: 0,
-    is3D: true,
-    backgroundColor: '#fff'
+  const { users } = useUsers()
+  const sites = ['facebook', 'instagram', 'linkedin', 'github','other', 'direct']
+  const data = []
+  for(const site of sites) {
+    const numFromSite = users?.filter((user) => user.comingfrom === site).length
+    data.push({subject: site, A: numFromSite, fullMark: users.length})
   }
+  
   return (
     <div className="admin-box md">
       <div className="count">
-        <h3>63</h3>
+        <h3>{users && users.length}</h3>
         <span>total portfolio views</span>
       </div>
-      <div className="chart">
-        <Chart
-          chartType="PieChart"
-          width="100%"
-          data={data}
-          options={options}
-        />
+      <div className="chart h-64">
+        <ResponsiveContainer width="100%" height="100%">
+          <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
+            <PolarGrid />
+            <PolarAngleAxis dataKey="subject" />
+            <PolarRadiusAxis />
+            <Radar name="Mike" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+          </RadarChart>
+        </ResponsiveContainer>
       </div>
     </div>
   )

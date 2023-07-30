@@ -279,7 +279,7 @@ section.skills .learned .tech span{
 }
 
 .admin-box.sm {
-  @apply flex items-center col-span-4 lg:col-span-1
+  @apply flex items-center col-span-5 lg:col-span-1
 }
 .admin-box.sm span{
   @apply p-5 text-3xl
@@ -292,7 +292,7 @@ section.skills .learned .tech span{
   @apply flex-col-reverse
 }
 .admin-box.md {
-  @apply col-span-4 lg:col-span-1
+  @apply col-span-5 lg:col-span-1
 }
 .admin-box.lg {
   @apply overflow-hidden
@@ -303,14 +303,14 @@ section.skills .learned .tech span{
 }
 
 .sm-layout{
-  @apply grid col-span-4 lg:col-span-2 grid-cols-4 lg:grid-cols-2 gap-4
+  @apply grid col-span-5 lg:col-span-2 grid-cols-5 lg:grid-cols-2 gap-x-4
 }
 .lg-layout{
-  @apply grid col-span-4 lg:col-span-2 grid-cols-1
+  @apply grid col-span-5 lg:col-span-3 grid-cols-1
 }
 
 .data table{
-  @apply w-full table-auto
+  @apply w-full table-auto 
 }
 .data table thead{
   @apply sticky top-0 bg-white dark:bg-slate-800
@@ -330,4 +330,7 @@ section.skills .learned .tech span{
 }
 .data table tr td.logo img{
   @apply w-7 h-7 mr-2
+}
+.data table tr td.pro-logo img{
+  @apply max-w-[60px]
 }

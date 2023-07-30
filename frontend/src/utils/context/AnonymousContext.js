@@ -18,10 +18,25 @@ export const AnonymousProvider = ({ children }) => {
     if(!Boolean(anonymousID)){
       const newAnonymousID = uuidv4()
       localStorage.setItem('sfp-ano-id', `${newAnonymousID}`)
+      const referringSite = document.referrer
+      let comingFrom = 'other'
+      
+      if (referringSite != ''){
+        const sites = ['facebook', 'instagram', 'linkedin', 'github']
+        for (const site of sites) {
+          if(referringSite.includes(`${site}.com`)) {
+            comingFrom = site
+          }
+        }
+      } else {
+        comingFrom = 'direct'
+      }
+      
+      
       const anonymousDoc = {
         _type: 'anonymousUser',
         _id: newAnonymousID,
-        id: newAnonymousID
+        comingfrom: comingFrom
       }
       client.create(anonymousDoc)
       anonymousID = newAnonymousID

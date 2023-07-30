@@ -10,18 +10,18 @@ import {
   ProjectViews, 
   ProjectsLG 
 } from "../components/dashboard"
+import { UsersProvider } from "../utils/context/UsersContext"
 
 const Dashboard = () => {
   const theme = localStorage.getItem('sfp-theme')
-  
 
   return (
-    <>
+    <UsersProvider>
     <Head />
     <div className="dashboard">
       <div className="container">
         <h1 className="title">fadi's dashboard</h1>
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-5 gap-x-4">
           <div className="sm-layout">
             <ProjectLikes />
             <ProjectViews />
@@ -42,7 +42,7 @@ const Dashboard = () => {
       </div>
     </div>
     <Footer />
-    </>
+    </UsersProvider>
   )
 }
 
