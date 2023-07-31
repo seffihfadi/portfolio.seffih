@@ -29,6 +29,11 @@ export default {
       title: 'Published',
       type: 'boolean',
     },
+    {
+      name: 'anoID',
+      title: 'Anonymous ID',
+      type: 'string'
+    }
   ],
   initialValue: {
     pub: true

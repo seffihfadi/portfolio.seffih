@@ -1,26 +1,13 @@
-import { Chart } from 'react-google-charts'
-import { useState, useEffect } from 'react'
-import { testimonialQuery } from '../../utils/serverData'
-import { client } from '../../client'
-import { useTheme } from '../../utils/context/UsersContext'
+import { BarChart, Bar, XAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
+import { useTestimonials } from '../../utils/context/UsersContext'
 
 
 const TestimonialsMD = () => {
-  const [testimonials, setTestimonials] = useState(null)
-  const theme = useTheme()
-  
-  useEffect(() => {
-    client
-      .fetch(testimonialQuery)
-      .then((testis) => {
-        setTestimonials(testis)  
-      })
-  }, [])
-
+  const testimonials = useTestimonials()
   //console.log('testimonials', testimonials)
   let pubNum = 0
   let priNum = 0
-  if (testimonials != null) {
+  if (testimonials) {
     for (const testimonial of testimonials){
       if (testimonial.pub) {
         pubNum++
@@ -30,22 +17,17 @@ const TestimonialsMD = () => {
     }
   }
 
-  
-
   const data = [
-    ["Testimonial", "Publish"],
-    ["Public", pubNum], // RGB value
-    ["Privat", priNum], 
-  ];
-  const options = {
-    legend: "none",
-    backgroundColor: theme,
-    animation: {
-      startup: true,
-      easing: "linear",
-      duration: 1000,
+    {
+      name: 'Public',
+      num: pubNum
     },
-  }
+    {
+      name: 'Privat',
+      num: priNum
+    }
+  ]
+
   return (
     <div className="admin-box md">
       <div className="count">
@@ -53,12 +35,15 @@ const TestimonialsMD = () => {
         <span>total testimonials</span>
       </div>
       <div className="chart">
-        <Chart
-          chartType="ColumnChart"
-          width="100%"
-          data={data}
-          options={options}
-        />
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart data={data}  >
+            <CartesianGrid strokeDasharray="3" />
+            <XAxis dataKey="name" />
+            <Tooltip />
+            <Legend />
+            <Bar dataKey="num" fillOpacity={0.7} fill="#ad9274" />
+          </BarChart>
+        </ResponsiveContainer>
       </div>
     </div>
   )

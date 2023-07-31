@@ -284,7 +284,12 @@ section.skills .learned .tech span{
 .admin-box.sm span{
   @apply p-5 text-3xl
 }
-
+.admin-box .chart {
+  @apply h-56
+}
+.admin-box .chart *{
+  @apply dark:text-black
+}
 .dashboard .admin-box .count span{
   @apply capitalize p-0 text-sm my-1.5
 }
@@ -299,7 +304,7 @@ section.skills .learned .tech span{
 }
 
 .dashboard .admin-box .data{
-  @apply w-full my-6 overflow-y-auto max-h-72
+  @apply w-full mt-6 overflow-y-auto max-h-80
 }
 
 .sm-layout{
@@ -322,7 +327,7 @@ section.skills .learned .tech span{
   @apply border-b border-gray-300 last-of-type:border-0
 }
 .data table tr td{
-  @apply py-3 capitalize 
+  @apply py-3 px-1 capitalize text-xs md:text-base
 }
 .data table tr td.logo,
 .data table tr td.logo a{

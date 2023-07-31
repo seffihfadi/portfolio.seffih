@@ -1,12 +1,13 @@
-import { motion } from 'framer-motion'
-import { useRef, useState, useContext } from 'react'
+import { useState } from 'react'
 import { client } from '../../client'
 import { v4 } from 'uuid'
 import { useProjects } from '../../utils/context/ProjectsContext'
+import { useAnonymous } from '../../utils/context/AnonymousContext'
 
 const RateForm = () => {
   const projects = useProjects()
   const jobs = ['designer', 'frontend developer', 'backend developer', 'mobile developer']
+  const anoID = useAnonymous()
   
   const [isSending, setIsSending] = useState(false)
   const [rateFormValues, setRateFormValues] = useState({
@@ -33,6 +34,7 @@ const RateForm = () => {
       _id: v4(),
       _type: 'testimonial',
       feedback: rateFormValues.feedback,
+      anoID: anoID,
       name: rateFormValues.name,
       job: jobName,
       project: projectLink,

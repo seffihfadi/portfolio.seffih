@@ -1,32 +1,26 @@
-import { Chart } from 'react-google-charts'
 import { useProjects } from '../../utils/context/ProjectsContext'
-import { useTheme } from '../../utils/context/UsersContext'
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 
 
 const ProjectsMD = () => {
 
-  const theme = useTheme()
   const projects = useProjects()
   const pub = projects?.filter((product) => product.pub === true).length
   const pri = projects?.filter((product) => product.pub === false).length
 
-  const data = [
-    ["Project", "Published"],
-    ["Public", pub],
-    ["Privat", pri], // CSS-style declaration
-  ]
-  const options = {
-    legend: "none",
-    backgroundColor: theme,
-    animation: {
-      startup: true,
-      easing: "linear",
-      duration: 1000,
-    },
-  }
 
-  
+
+  const data = [
+    {
+      name: 'Public',
+      num: pub
+    },
+    {
+      name: 'Privat',
+      num: pri
+    }
+  ]
+
   return (
     <div className="admin-box md">
       <div className="count">
@@ -35,12 +29,13 @@ const ProjectsMD = () => {
       </div>
       <div className="chart">
         <ResponsiveContainer width="100%" height="100%">
-          <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
-            <PolarGrid />
-            <PolarAngleAxis dataKey="subject" />
-            <PolarRadiusAxis />
-            <Radar name="Mike" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
-          </RadarChart>
+          <BarChart data={data}  >
+            <CartesianGrid strokeDasharray="3" />
+            <XAxis dataKey="name" />
+            <Tooltip />
+            <Legend />
+            <Bar dataKey="num" fillOpacity={0.7} fill="#ad9274" />
+          </BarChart>
         </ResponsiveContainer>
       </div>
     </div>

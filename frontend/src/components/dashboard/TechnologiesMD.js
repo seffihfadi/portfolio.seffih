@@ -1,13 +1,12 @@
-import { Chart } from 'react-google-charts'
 import { client } from '../../client'
 import { technologyQuery } from '../../utils/serverData'
 import { useState, useEffect } from 'react'
-import { useTheme } from '../../utils/context/UsersContext'
+import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
+
 
 const TechnologiesMD = () => {
 
   const [technologies, setTechnologies] = useState(null)
-  const theme = useTheme()
 
   useEffect(() => {
     client
@@ -28,24 +27,26 @@ const TechnologiesMD = () => {
       }
     }
   }
-  const data = [
-    ["Technologies", "Percentage"],
-    ["Well In", wellin],
-    ["Coming", coming], // CSS-style declaration
-  ]
   
-  const options = {
-    legend: "none",
-    pieSliceText: "label",
-    pieHole: 0,
-    is3D: true,
-    backgroundColor: theme,
-    animation: {
-      startup: true,
-      easing: "linear",
-      duration: 1500,
-    },
-  }
+const data = [
+  { name: 'Well In', value: wellin },
+  { name: 'Comming Soon', value: coming }
+];
+
+const COLORS = ['#ad9274', '#00C49F'];
+
+const RADIAN = Math.PI / 180;
+const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
+  const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+  const x = cx + radius * Math.cos(-midAngle * RADIAN);
+  const y = cy + radius * Math.sin(-midAngle * RADIAN);
+
+  return (
+    <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
+      {`${(percent * 100).toFixed(0)}%`}
+    </text>
+  );
+};
   return (
     <div className="admin-box md">
       <div className="count">
@@ -53,12 +54,23 @@ const TechnologiesMD = () => {
         <span>total technologies</span>
       </div>
       <div className="chart">
-        <Chart
-          chartType="PieChart"
-          width="100%"
-          data={data}
-          options={options}
-        />
+        <ResponsiveContainer width="100%" height="100%">
+          <PieChart>
+            <Pie
+              data={data}
+              cx="50%"
+              cy="50%"
+              labelLine={false}
+              label={renderCustomizedLabel}
+              outerRadius={80}
+              dataKey="value"
+            >
+              {data.map((entry, index) => (
+                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} fillOpacity={0.7} />
+              ))}
+            </Pie>
+          </PieChart>
+        </ResponsiveContainer>
       </div>
     </div>
   )

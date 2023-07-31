@@ -15,7 +15,7 @@ const ProjectsLG = () => {
           <thead>
             <tr>
               <th>ID</th>
-              <th>Name</th>
+              <th>Logo</th>
               <th>Post Date</th>
               <th>Likes</th>
               <th>Views</th>

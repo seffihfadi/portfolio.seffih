@@ -53,6 +53,7 @@ export const projectQuery
 
 export const testimonialQuery 
 = `*[_type == "testimonial"]{
+    anoID,
     job,
     feedback,
     name,

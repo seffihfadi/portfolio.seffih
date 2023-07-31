@@ -1,24 +1,34 @@
 import { useState, createContext, useEffect, useContext } from 'react'
 import { client } from '../../client'
-import { usersQuery } from '../serverData'
+import { usersQuery, testimonialQuery } from '../serverData'
 
 const UsersContext = createContext(null)
-const ThemeContext = createContext()
+const TestimonialsContext = createContext(null)
 //const UsersFilterUpdate = createContext(null)
 
 export const useUsers = () => {
   return useContext(UsersContext)
 }
-export const useTheme = () => {
-  return useContext(ThemeContext)
+export const useTestimonials = () => {
+  return useContext(TestimonialsContext)
 }
 
 export const UsersProvider = ({ children }) => {
-  const myTheme = localStorage.getItem('sfp-theme') == 'dark' ? '#1e293b' : '#fff'
-  const [theme] = useState(myTheme)
+  // const myTheme = localStorage.getItem('sfp-theme') == 'dark' ? '#fff' : '#1e293b'
+  // const [theme] = useState(myTheme)
+  const [testimonials, setTestimonials] = useState(null)
+  
+  useEffect(() => {
+    client
+      .fetch(testimonialQuery)
+      .then((testis) => {
+        setTestimonials(testis)  
+      })
+  }, [])
+
 
   const [users, setUsers] = useState(null)
-  const [filter, setFilter] = useState('today')   // init in one year
+  const [filter, setFilter] = useState('today')   // init in today
   const days = {all: 365, month: 30, week: 7, today: 1}
 
   useEffect(() => {
@@ -34,9 +44,9 @@ export const UsersProvider = ({ children }) => {
 
   return (
     <UsersContext.Provider value={{users: users, setFilter: setFilter, filter: filter}}>
-      <ThemeContext.Provider value={theme}>
+      <TestimonialsContext.Provider value={testimonials}>
         {children}
-      </ThemeContext.Provider>
+      </TestimonialsContext.Provider>
     </UsersContext.Provider>
   )
 }
