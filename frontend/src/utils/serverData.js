@@ -71,3 +71,4 @@ export const usersQuery = (days) => {
     }`
 }
   
+export const adminQuery = `*[_type == "anonymousUser" && isAdmin == true]{ _id }`

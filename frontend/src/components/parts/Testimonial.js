@@ -8,7 +8,7 @@ const Testimonial = ({testimonial, bgColor}) => {
 
       <figure>
         <blockquote className="mt-4">
-          <p>{testimonial.project && <a className="text-blue-800" href={testimonial.project}>(About Site)</a> } {testimonial.feedback}</p>
+          <p>{testimonial.project && <a className="text-blue-800" href={testimonial.project}>(About Project)</a> } {testimonial.feedback}</p>
         </blockquote>
         <figcaption className="flex items-center">
           <div className="img" style={{background: bgColor}}>{testimonial.name[0]}</div>

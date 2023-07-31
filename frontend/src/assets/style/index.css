@@ -41,6 +41,9 @@ header{
 footer{
   @apply mb-14 md:mb-0
 }
+.dashboard ~ footer {
+  @apply mb-0
+}
 header .links{
   @apply bg-white dark:bg-slate-800 w-full md:shadow-2xl md:py-6 ltr:md:rounded-br-3xl 
   ltr:md:rounded-tr-3xl rtl:md:rounded-bl-3xl rtl:md:rounded-tl-3xl
@@ -285,7 +288,7 @@ section.skills .learned .tech span{
   @apply p-5 text-3xl
 }
 .admin-box .chart {
-  @apply h-56
+  @apply h-56 my-auto
 }
 .admin-box .chart *{
   @apply dark:text-black
@@ -297,7 +300,7 @@ section.skills .learned .tech span{
   @apply flex-col-reverse
 }
 .admin-box.md {
-  @apply col-span-5 lg:col-span-1
+  @apply col-span-5 lg:col-span-1 flex flex-col justify-between
 }
 .admin-box.lg {
   @apply overflow-hidden

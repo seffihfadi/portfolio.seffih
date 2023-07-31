@@ -1,8 +1,9 @@
-import React from 'react'
 
-const NotFound = () => {
+const NotFound = ({ msg }) => {
   return (
-    <div>NotFound</div>
+    <div className="flex w-screen h-screen justify-center items-center">
+      <h3 className="capitalize font-bold text-xl">{msg}</h3>
+    </div>
   )
 }
 

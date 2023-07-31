@@ -31,9 +31,6 @@ const Testimonials = () => {
             <Testimonial key={i} bgColor={colors[i%colors.length]} testimonial={testimonial} />
           )}
         </motion.div>
-        {/*<div className="inset-x-0 bottom-0 flex justify-center bg-gradient-to-t from-white pt-32 pb-8 dark:from-slate-800 dark:to-slate-750 dark:opacity-60 absolute">
-          <button className="btn-primary">show more</button>
-  </div>*/}
       </div>
     </section>
 
