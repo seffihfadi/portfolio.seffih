@@ -22,12 +22,13 @@ export const AnonymousProvider = ({ children }) => {
       let comingFrom = 'other'
       
       if (referringSite != ''){
-        const sites = ['facebook', 'instagram', 'linkedin', 'github']
+        /*const sites = ['facebook', 'instagram', 'linkedin', 'github']
         for (const site of sites) {
           if(referringSite.includes(`${site}.com`)) {
             comingFrom = site
           }
-        }
+        }*/
+        comingFrom = referringSite
       } else {
         comingFrom = 'direct'
       }

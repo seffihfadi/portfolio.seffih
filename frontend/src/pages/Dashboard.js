@@ -17,11 +17,11 @@ import { UsersProvider } from "../utils/context/UsersContext"
 import { useEffect, useState } from "react"
 import { client } from "../client"
 import { adminQuery } from "../utils/serverData"
-import { useNavigate } from 'react-router-dom'
+//import { useNavigate } from 'react-router-dom'
 
 const Dashboard = () => {
   
-  const navigate = useNavigate()
+  //const navigate = useNavigate()
   const [isAdmin, setIsAdmin] = useState(false)
   useEffect(() => {
     const anoUserID = localStorage.getItem('sfp-anony-id')
