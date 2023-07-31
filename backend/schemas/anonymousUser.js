@@ -8,5 +8,10 @@ export default {
       title: 'Coming From',
       type: 'string',
     },
+    {
+      name: 'isAdmin',
+      title: 'Is Admin',
+      type: 'boolean',
+    },
   ],
 }
