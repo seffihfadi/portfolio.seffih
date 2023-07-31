@@ -27,8 +27,14 @@ const Dashboard = () => {
     const anoUserID = localStorage.getItem('sfp-anony-id')
     client
       .fetch(adminQuery)
-      .then((admin) => {
-        setIsAdmin(admin[0]._id === anoUserID)
+      .then((admins) => {
+        //setIsAdmin(admin[0]._id === anoUserID)
+        for (const admin of admins) {
+          if (admin._id === anoUserID) {
+            setIsAdmin(true)
+            break;
+          }
+        }
         //if(!isAdmin) navigate('/', {replace: true})
       })
   }, [])
