@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { bioVars } from '../assets/anim/animation'
 
 const Bio = () => {
-  const img = require('../assets/imgs/biopng.png')
+  const img = require('../assets/imgs/headpnged1.png')
   
   return (
     <section className="biography" >

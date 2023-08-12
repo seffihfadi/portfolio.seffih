@@ -25,7 +25,7 @@ const RateForm = () => {
     e.preventDefault()
     setIsSending(true)
 
-    const jobName = jobs.includes(rateFormValues.job) ? rateFormValues.job : ''
+    const jobName = jobs.indexOf(rateFormValues.job) !== -1 ? rateFormValues.job : ''
     const projectLink 
       = Boolean(projects?.filter((pr) => pr.link === rateFormValues.project).length) 
       ? rateFormValues.project : ''

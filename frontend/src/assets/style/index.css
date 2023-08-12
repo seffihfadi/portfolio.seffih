@@ -22,16 +22,22 @@
 body{
   @apply dark:bg-slate-800 overflow-x-hidden 
 }
-
+#canva {
+  position: absolute !important; 
+  width: 100vw !important;
+  height: 100vh !important;
+  top: 0 !important;
+  left: 0 !important;
+}
 ::-webkit-scrollbar {
-  @apply w-2   
+  @apply w-1
 
 }
-::-webkit-scrollbar-track {
-  @apply bg-white dark:bg-slate-800
-}
+/* ::-webkit-scrollbar-track {
+  @apply 
+} */
 ::-webkit-scrollbar-thumb {
-  @apply bg-[#836a51] hover:bg-[#836a51ef]
+  @apply bg-[#836a51] hover:bg-[#836a51ef] rounded-full 
   
 }
 header{
@@ -49,7 +55,10 @@ header .links{
   ltr:md:rounded-tr-3xl rtl:md:rounded-bl-3xl rtl:md:rounded-tl-3xl
 }
 header .links ul{
-  @apply flex justify-around md:justify-center items-center md:flex-col 
+  @apply flex md:justify-center items-center md:flex-col 
+}
+header .links ul li{
+  @apply w-[calc(100vw/6)] md:w-auto
 }
 header a{
   @apply flex justify-center items-center flex-col p-3 md:hover:bg-[#836a513b] 
@@ -87,14 +96,7 @@ h1.title{
 }
 section#biography{
   @apply rtl:bg-gradient-to-tl bg-gradient-to-tr from-[#f5f3f1] to-white 
-  dark:from-[#172133] dark:to-slate-800 relative 
-}
-section#biography .grid *{
-  @apply dark:text-[#4b4b4b] md:dark:text-white
-}
-section#biography::after{
-  @apply w-[100vw] md:w-[70vw] lg:w-[40vw] right-0 rtl:left-0 rtl:right-auto 
-  absolute top-0 h-full content-[''] bg-hero-pattern bg-cover bg-center bg-no-repeat z-0
+  dark:from-[#172133] dark:to-slate-800 relative
 }
 section.biography p{
   @apply my-2
@@ -137,7 +139,7 @@ section.do .box h3{
   @apply columns-1 md:columns-2 lg:columns-3 gap-6 overflow-hidden pb-10
 }
 .container{
-  @apply mx-auto sm:w-[540px] md:w-[720px] lg:w-[960px] xl:w-[1200px] px-6 md:px-0
+  @apply mx-auto sm:w-[640px] md:w-[768px] lg:w-[1024px] xl:w-[1280px] px-6 md:px-14 
 }
 
 section.contact .con{
@@ -179,40 +181,63 @@ section.contact select option{
   @apply 
 }*/
 section.portfolio .project{
-  @apply rounded-lg overflow-hidden flex flex-col items-center relative shadow-xl 
-  col-span-12 md:col-span-6 lg:col-span-4
+  @apply rounded-xl overflow-hidden flex flex-col items-center relative shadow-xl 
+  col-span-12 lg:col-span-6 mb-5 md:mb-0
+}
+section.portfolio .project .absolute{
+  @apply left-0 top-0 opacity-0 duration-300 transition-all flex flex-col 
+  justify-between w-full text-white h-full bg-[#00000081]
+}
+/* section.portfolio .project:hover .mokup{
+  @apply blur-sm
+} */
+section.portfolio .project:hover .absolute{
+  @apply opacity-100
 }
 section.portfolio .project .txt {
-  @apply flex items-start p-5
+  @apply flex items-center px-5 py-2 
 }
 section.portfolio .project .txt .logo{
-  @apply max-w-[30%] 
+  @apply max-w-[25%] md:max-w-[20%]
 }
 section.portfolio .project .txt .title{
-  @apply mx-8 max-w-[60%]
+  @apply ml-8 md:ml-10 max-w-[60%]
 }
+
 section.portfolio .project .txt .title h3{
-  @apply font-bold text-black text-[1rem]
+  @apply font-bold text-[1rem]
+}
+section.portfolio .project .txt .title span{
+  @apply text-sm
 }
 section.portfolio .project .txt .title .info{
   @apply flex mt-2
 }
-section.portfolio .project .txt .title .info .rounded{
-  @apply border-[1px] border-black flex justify-center items-center rounded-full 
-  px-2 last-of-type:mx-2 
+section.portfolio .project *{
+  @apply text-white
+}
+section.portfolio .project .desc{
+  @apply px-5 mt-auto
 }
 
-section.portfolio .project .txt .title .info .rounded.inter{
-  @apply bg-[#516d833b]
+section.portfolio .project .btns-react button{
+  @apply flex justify-center items-center rounded-full px-2 md:px-2.5 py-0.5 md:py-1.5 gap-2 
 }
+section.portfolio .project .btns-react button span{
+  @apply text-white last-of-type:text-base font-bold text-lg md:text-xl
+}
+section.portfolio .project .btns-react button.inter{
+  @apply bg-[#516d835d]
+}
+
 section.portfolio .project .txt .title .info .rounded span{
   @apply mx-1 text-base last-of-type:text-sm dark:text-black
 }
 section.portfolio .project .tech{
-  @apply absolute flex bottom-0 left-0 p-5 justify-center items-center
+  @apply p-5 justify-between w-full flex items-center
 }
 section.portfolio .project .tech img{
-  @apply w-8 mx-2
+  @apply w-5 md:w-7 mx-2
 }
 
 
@@ -244,14 +269,14 @@ section.contact{
 }
 
 section.skills .learned .tech {
-  @apply col-span-2 flex flex-col justify-center items-center p-9 lg:p-10 cursor-pointer
+  @apply col-span-2 flex flex-col justify-center items-center p-7 md:p-10 lg:p-9 xl:p-11 cursor-pointer
 }
 
 section.skills .learned .tech img{
   @apply w-full mb-3
 }
 section.skills .learned .tech span{
-  @apply font-bold capitalize mt-auto text-sm md:text-base
+  @apply font-bold capitalize mt-auto text-xs md:text-base
 }
 
 
@@ -266,7 +291,7 @@ section.skills .learned .tech span{
 }
 
 .dashboard{
-  @apply mt-20
+  @apply mt-2
 }
 
 .dashboard .admin-box{
@@ -327,7 +352,7 @@ section.skills .learned .tech span{
   @apply text-left py-3
 }
 .data table tr{
-  @apply border-b border-gray-300 last-of-type:border-0
+  @apply border-gray-300 border-b last-of-type:border-0
 }
 .data table tr td{
   @apply py-3 px-1 capitalize text-xs md:text-base

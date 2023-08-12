@@ -50,7 +50,10 @@ const EduSkills = () => {
           <div className="col-span-12 lg:col-span-8">
             <div className="flex justify-between items-center">
               <h2 className="capitalize text-3xl py-5">{isLearned ? 'skills' : 'coming'}</h2>
-              <button className='btn-switch' onClick={() => { setIsLearned(!isLearned)} }>{isLearned ? 'coming' : 'skills'}</button>
+              <button className='btn-switch' onClick={() => { setIsLearned(!isLearned)} }>
+                <span className="material-symbols-rounded rotate-90 mr-2">unfold_more</span>  
+                {isLearned ? 'coming' : 'skills'}
+              </button>
             </div>
             {isLearned ? <Learned skills={skills} /> : <Coming coming={coming} /> }
           </div>

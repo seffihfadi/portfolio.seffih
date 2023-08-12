@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 
 const Techno = ({ technos }) => {
   return (
-    <div className="tech flex">
+    <div className="flex items-center">
       {technos.map((techno) => 
         <motion.img 
           whileHover={{scale: 1.1}} 

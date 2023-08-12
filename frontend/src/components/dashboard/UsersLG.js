@@ -7,7 +7,7 @@ const User = ({ user, i }) => {
   const actArr = []
   const testimonials = useTestimonials()
   //console.log('testimonials', testimonials)
-  const [dropdown, setDropdown] = useState(true)
+  //const [dropdown, setDropdown] = useState(true)
   const projects = useProjects()
   if (projects) {
     for (const project of projects){
@@ -26,12 +26,33 @@ const User = ({ user, i }) => {
     }
   }
   
+  let userRefer
+  const sites = ['facebook', 'instagram', 'linkedin', 'github']
+  for (const site of sites) {
+    userRefer = ''
+    if(user?.comingfrom.toString().indexOf(site) !== -1) {
+      userRefer = site
+      break
+    }else{
+      userRefer = user?.comingfrom
+    }
+    console.log('userRefer', userRefer)
+  }
+  
   return (
     <tr>
       <td>{i+1}</td>
       <td className='logo'>
-        <img className="hidden md:inline-block" src={require(`../../assets/imgs/${user.comingfrom}.png`)} alt={user.comingfrom} />
-        <span>{user.comingfrom}</span>
+        {user.isAdmin 
+        ? <span className="material-symbols-rounded mr-3">admin_panel_settings</span> 
+        :
+          <img 
+            className="hidden md:inline-block" 
+            src={require(`../../assets/imgs/${userRefer}.png`)} 
+            alt={user.comingfrom} 
+          />
+        }
+        <span>{userRefer}</span>
       </td>
       <td>{new Date(user._createdAt).toUTCString()}</td>
       <td>
@@ -66,7 +87,10 @@ const UsersLG = () => {
           <h3>{users && users.length}</h3>
           <span>portfolio views ( {filter} )</span>
         </div>
-        <button onClick={handleClick} className="btn-switch">{days[index]}</button>
+        <button onClick={handleClick} className="btn-switch">
+          <span className="material-symbols-rounded rotate-90 mr-2">unfold_more</span>
+          {days[index]}
+        </button>
       </div>
       <div className="data">
         <table>

@@ -13,7 +13,7 @@ const Portfolio = () => {
           whileInView={{y: 0, opacity: 1}} 
           viewport={{once: true}}
           transition={{type: 'spring', stiffness: 150}}
-          className="grid grid-cols-12 gap-7"
+          className="grid grid-cols-12 md:gap-10"
         >
           {projects && projects.map((project) => project.pub &&
             <Project key={project._id} project={project} />

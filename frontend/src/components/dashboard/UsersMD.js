@@ -3,13 +3,21 @@ import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Responsi
 
 const UsersMD = () => {
   const { users } = useUsers()
-  const sites = ['facebook', 'instagram', 'linkedin', 'github','other', 'direct']
+  const sites = ['facebook', 'instagram', 'linkedin', 'github', 'other', 'direct']
   const data = []
-  for(const site of sites) {
-    const numFromSite = users?.filter((user) => user.comingfrom === site).length
-    data.push({subject: site, A: numFromSite, fullMark: users?.length})
+
+  if(users){
+    for(const site of sites) {
+      let numFromSite = 0
+      for(const user of users) {
+        if(user?.comingfrom.toString().indexOf(site) !== -1) {
+          numFromSite++
+        }
+      }
+      data.push({subject: site, A: numFromSite, fullMark: users?.length})
+    }
   }
-  
+
   return (
     <div className="admin-box md">
       <div className="count">

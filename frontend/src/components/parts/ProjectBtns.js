@@ -33,10 +33,10 @@ export const LikeBtn = ({ project }) => {
 
   return (
     <motion.button 
-      whileHover={{scale: 1.05}}
-      whileTap={{scale: .9}} 
+      //whileHover={{scale: 1.05}}
+      //whileTap={{scale: .9}} 
       onClick={handleLike} 
-      className={`rounded like ${isLike && 'inter'}`}
+      className={`${isLike && 'inter'}`}
     >
       <span className="material-symbols-rounded">favorite</span>
       <span>{numLikes}</span>
