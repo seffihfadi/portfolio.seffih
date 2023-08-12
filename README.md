@@ -1,3 +1,3 @@
 # Portfolio Link 
 
-Open [https://seffih-portfolio.netlify.app](https://seffih-portfolio.netlify.app) to view it in your browser.
+Open [https://seffih.netlify.app](https://seffih.netlify.app) to view it in your browser.
