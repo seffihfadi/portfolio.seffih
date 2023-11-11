@@ -12,7 +12,8 @@ export const educationParentVars = {
       type: 'spring',
       stiffness: 150,
       when: 'beforeChildren',
-      staggerChildren: 0.2
+      staggerChildren: 0.2,
+      // repeat: 0
     }
   },
 }
@@ -63,8 +64,7 @@ export const learnedParentVars = {
     transition:{ 
       duration: .2,
       when: 'beforeChildren',
-      staggerChildren: 0.11
-    
+      staggerChildren: 0.11,
     }
   }
 }

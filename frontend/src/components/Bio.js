@@ -32,7 +32,6 @@ const Bio = () => {
               whileInView={bioVars.inView}
               transition={bioVars.transition} 
               viewport={{once: true}}
-              className='' 
             >
               <h1 className="title">biography</h1>
               <p>{bioData.desc1}</p>

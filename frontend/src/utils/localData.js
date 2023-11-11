@@ -30,12 +30,12 @@ function age(birthYear){
 
 export const bioData = {
 
-  desc1: 'Step into the exciting realm of web development with me! I am a passionate and dedicated Web Developer, proficient in both Front-end and Back-end technologies. With an unwavering love for coding and an eye for creative design, I have spent years perfecting my skills to build seamless and captivating digital experiences.',
+  desc1: 'Embark on a web development journey with a passionate and dedicated developer proficient in Front-end and Back-end technologies. Years of experience in coding and creative design ensure seamless, captivating digital experiences.',
   desc2: 'Whether you\'re a fellow developer, a visionary entrepreneur, or an aspiring artist, I invite you to explore my portfolio and witness the fusion of art and technology. Together, let\'s elevate your online presence and leave a lasting impression on the vast expanse of the internet.',
   job: 'web developer',
   info: {
     name: 'seffih fadi',
-    newExperience: '1 year',
+    newExperience: '2 years',
     age: `${age(2004)} years`,
     freelance: 'avaliable',
   },
@@ -48,11 +48,11 @@ export const bioData = {
 }
 
 export const heroData = {
-  name: `${bioData.info.name} imed eddine`,
+  name: `${bioData.info.name}`,
   email: bioData.contact.email,
   phone: bioData.contact.phone,
   job: bioData.job,
-  desc: 'Welcome to my digital realm of creativity and innovation! I am a passionate web developer, and this is where pixels come to life, and ideas take flight. With a fervor for crafting immersive digital experiences, I blend cutting-edge technology with intuitive design to build websites that captivate and engage.'
+  desc: 'I am a passionate web developer, and this is where pixels come to life, and ideas take flight. With a fervor for crafting immersive digital experiences, I blend cutting-edge technology with intuitive design to build websites that captivate and engage.'
 }
 
 export const footerData = {

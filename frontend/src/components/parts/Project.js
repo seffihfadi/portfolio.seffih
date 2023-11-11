@@ -1,4 +1,5 @@
 import Techno from '../parts/Techno'
+import TimeAgo from 'react-timeago'
 import { LikeBtn, ViewBtn } from './ProjectBtns'
 import { motion } from 'framer-motion'
 
@@ -21,7 +22,7 @@ const Project = ({ project }) => {
           </div>
           <div className="title">
             <h3>{project.title}</h3>
-            <span>Posted on {new Date(project._createdAt).toDateString().toLowerCase()}</span>
+            <span>Posted <TimeAgo date={project._createdAt} /></span>
           </div>
         </div>
         <div className="desc">
@@ -36,7 +37,7 @@ const Project = ({ project }) => {
         </div>
       </div>
       <div className="mokup h-full">
-        <img className='h-full' src={project.mokup.asset.url} alt={project.title} />
+        <img className='h-full w-full object-cover' src={project.mokup.asset.url} alt={project.title} />
       </div>
     </motion.div>
   )

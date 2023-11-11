@@ -67,8 +67,8 @@ header a{
 header a.active{
   @apply bg-[#516d833b]
 }
-section.me span{
-  @apply text-base
+section.me span.modi > span{
+  @apply leading-[70px]
 }
 .btn-primary{
   @apply hover:bg-[#836a51] transition hover:scale-110 bg-[#755f49] 
@@ -186,7 +186,7 @@ section.portfolio .project{
 }
 section.portfolio .project .absolute{
   @apply left-0 top-0 opacity-0 duration-300 transition-all flex flex-col 
-  justify-between w-full text-white h-full bg-[#00000081]
+  justify-between w-full text-white h-full bg-[#00000079] backdrop-blur
 }
 /* section.portfolio .project:hover .mokup{
   @apply blur-sm
@@ -291,7 +291,7 @@ section.skills .learned .tech span{
 }
 
 .dashboard{
-  @apply mt-2
+  @apply mt-16
 }
 
 .dashboard .admin-box{

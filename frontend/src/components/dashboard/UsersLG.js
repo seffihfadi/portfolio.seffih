@@ -1,6 +1,7 @@
 import { useUsers, useTestimonials } from '../../utils/context/UsersContext'
 import { useProjects } from '../../utils/context/ProjectsContext'
 import { useState } from 'react'
+import TimeAgo from 'react-timeago'
 
 
 const User = ({ user, i }) => {
@@ -36,8 +37,11 @@ const User = ({ user, i }) => {
     }else{
       userRefer = user?.comingfrom
     }
-    console.log('userRefer', userRefer)
+    // console.log('userRefer', userRefer)
   }
+
+  const isINArray = sites.includes(userRefer);
+
   
   return (
     <tr>
@@ -48,13 +52,13 @@ const User = ({ user, i }) => {
         :
           <img 
             className="hidden md:inline-block" 
-            src={require(`../../assets/imgs/${userRefer}.png`)} 
+            src={require(`../../assets/imgs/${isINArray ? userRefer : 'direct'}.png`)} 
             alt={user.comingfrom} 
           />
         }
         <span>{userRefer}</span>
       </td>
-      <td>{new Date(user._createdAt).toUTCString()}</td>
+      <td><TimeAgo date={user._createdAt} /></td>
       <td>
         {actArr.length > 0
         ?
