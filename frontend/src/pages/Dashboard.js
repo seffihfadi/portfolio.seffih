@@ -24,7 +24,7 @@ const Dashboard = () => {
   //const navigate = useNavigate()
   const [isAdmin, setIsAdmin] = useState(false)
   useEffect(() => {
-    const anoUserID = localStorage.getItem('sfp-anony-id')
+    const anoUserID = localStorage.getItem('sfp-anonymous-id')
     client
       .fetch(adminQuery)
       .then((admins) => {

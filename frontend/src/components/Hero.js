@@ -37,14 +37,14 @@ const Hero = () => {
       >
         <div className="grid h-screen grid-cols-12 items-start md:items-center">
           <motion.div variants={heroParentVars} initial='hidden' whileInView='visible' className="col-span-12 mt-20 md:mt-0 md:col-span-7 z-10">
-            <motion.div className='flex gap-4 my-3' variants={heroChildVars}>
+            <motion.div className='flex flex-wrap gap-4 my-3' variants={heroChildVars}>
               <div className="flex items-center rounded-full py-2 px-4 w-fit bg-[#836a51]">
                 <span className="material-symbols-rounded text-[20px] mr-4">waving_hand</span>
                 <span variants={heroChildVars} className='font-semibold'>Hi, I am :</span>
               </div>
-              <span variants={heroChildVars} className="capitalize text-5xl">{heroData.name}</span>
+              <span variants={heroChildVars} className="capitalize text-3xl md:text-4xl lg:text-5xl">{heroData.name}</span>
             </motion.div>
-            <motion.span variants={heroChildVars} className="modi text-5xl">I'm a {''}
+            <motion.span variants={heroChildVars} className="modi text-3xl md:text-4xl lg:text-5xl">I'm a {''}
             <TypeAnimation
               sequence={[
                 'Computer engineering student.', delay,

@@ -13,11 +13,11 @@ export const AnonymousProvider = ({ children }) => {
   const [anonymousUserID, setAnonymousUserID] = useState(null)
 
   useEffect(() => {
-    let anonymousID = localStorage.getItem('sfp-anony-id')
+    let anonymousID = localStorage.getItem('sfp-anonymous-id')
     // console.log(Boolean(anonymousID))
     if(!Boolean(anonymousID)){
       const newAnonymousID = uuidv4()
-      localStorage.setItem('sfp-anony-id', `${newAnonymousID}`)
+      localStorage.setItem('sfp-anonymous-id', `${newAnonymousID}`)
       const referringSite = document.referrer
       let comingFrom = 'other'
       

@@ -35,7 +35,7 @@ export const bioData = {
   job: 'web developer',
   info: {
     name: 'seffih fadi',
-    newExperience: '2 years',
+    newExperience: `${new Date().getFullYear() - 2021} years`,
     age: `${age(2004)} years`,
     freelance: 'avaliable',
   },

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { bioVars } from '../assets/anim/animation'
 
 const Bio = () => {
-  const img = require('../assets/imgs/headpnged1.png')
+  const img = require('../assets/imgs/i1.jpg')
   
   return (
     <section className="biography" >
@@ -18,7 +18,7 @@ const Bio = () => {
               className="about"
             >
               <div className="imgin mx-auto">
-                <img className="object-cover" src={img} />
+                <img className="object-cover object-top" src={img} />
               </div>
               <div className="flex justify-center items-center flex-col mt-4">
                 <p className="font-bold capitalize">{bioData.job}</p>
