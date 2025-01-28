@@ -63,7 +63,7 @@ const Hero = () => {
         </div>
       </div>
       <Canvas id='canva' /*shadows*/>
-        <Suspense fallback={'loading'}>
+        <Suspense fallback={'loading...'}>
           <RobotModel active={active} />
         </Suspense>
       </Canvas>

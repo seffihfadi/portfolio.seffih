@@ -13,9 +13,9 @@ export const AnonymousProvider = ({ children }) => {
   const [anonymousUserID, setAnonymousUserID] = useState(null)
 
   useEffect(() => {
-    let anonymousID = localStorage.getItem('sfp-anonymous-id')
+    // let anonymousID = localStorage.getItem('sfp-anonymous-id')
     // console.log(Boolean(anonymousID))
-    if(!Boolean(anonymousID)){
+    // if(!Boolean(anonymousID)){
       const newAnonymousID = uuidv4()
       localStorage.setItem('sfp-anonymous-id', `${newAnonymousID}`)
       const referringSite = document.referrer
@@ -35,9 +35,9 @@ export const AnonymousProvider = ({ children }) => {
         isAdmin: false
       }
       client.create(anonymousDoc)
-      anonymousID = newAnonymousID
-    }
-    setAnonymousUserID(anonymousID)
+      // anonymousID = newAnonymousID
+    // }
+    setAnonymousUserID(newAnonymousID)
   }, [])
 
 
